@@ -1,0 +1,58 @@
+/* Base Screen Transitions */
+.screen {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    transform: scale(0.95);
+}
+
+.screen.active {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+    animation: fadeIn 0.4s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Option Buttons Animations */
+.option-btn {
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.option-btn:hover {
+    transform: translateX(5px);
+    background-color: #374151; /* gray-700 */
+    border-color: #60A5FA; /* blue-400 */
+}
+
+.option-btn.correct {
+    background-color: #059669 !important; /* green-600 */
+    border-color: #34D399 !important; /* green-400 */
+    color: white;
+    animation: pop 0.3s ease;
+}
+
+.option-btn.wrong {
+    background-color: #DC2626 !important; /* red-600 */
+    border-color: #F87171 !important; /* red-400 */
+    color: white;
+    animation: shake 0.4s ease;
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
